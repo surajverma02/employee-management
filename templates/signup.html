@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block title %}
+SignUp Page
+{% endblock %}
+
+{% block content %}
+
+<form action="/signup/" method="post">
+    {% csrf_token %}
+    <h1 style="text-align: center;">SignUp page</h1>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <h1{% if message.tags %} class="{{ message.tags }}"{% endif %} style="background-color: rgb(102, 176, 255); padding: 20px;border: 1px solid black;">{{ message }}</h1>
+    {% endfor %}
+</ul>
+{% endif %}
+
+    <div>
+        <label for="first_name">First name : </label>
+        <input type="text" name="first_name" id="first_name">
+    </div>
+    <div>
+        <label for="last_name">Last name : </label>
+        <input type="text" name="last_name" id="last_name">
+    </div>
+    <div>
+        <label for="email">Username : </label>
+        <input type="text" name="username" id="email">
+    </div>
+    <div>
+        <label for="password">Password : </label>
+        <input type="password" name="password" id="password">
+    </div>
+    <p>Already have account <a href="/login/">Login</a></p>
+    <button type="submit" class="button">Sign UP</button>
+</form>
+
+{% endblock %}

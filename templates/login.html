@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block content %}
+
+<form action="/login/" method="post">
+    {% csrf_token %}
+    <h1 style="text-align: center;">Login page</h1>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}"{% endif %} style="background-color: rgb(102, 176, 255); padding: 20px;border: 1px solid black;">{{ message }}</p>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div>
+        <label for="email">Username : </label>
+        <input type="text" name="username" id="email">
+    </div>
+    <div>
+        <label for="password">Password : </label>
+        <input type="password" name="password" id="password">
+    </div>
+    <p>Don't have account <a href="/signup/">SignUp</a></p>
+    <button type="submit" class="button">Login</button>
+</form>
+
+{% endblock %}

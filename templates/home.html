@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<h1>Home Page</h1>
+
+<form >
+    <div class="search">
+
+        <label for="search">Search : </label>
+        <input type="text" name="search" id="search" placeholder="Search">
+        <button type="submit" class="button">Search</button>
+
+    </div>
+</form>
+
+<table style="border: 2px solid black;width: 90%;margin-top: 10px; border-collapse: collapse;" border="collapse">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for e in emp %}
+        <tr style="height: 60px;">
+            <td>{{forloop.counter}}</td>
+            <td>{{e.first_name}}</td>
+            <td>{{e.last_name}}</td>
+            <td>{{e.address}}</td>
+            <td>{{e.city}}</td>
+            <td>{{e.state}}</td>
+            <td>{{e.email}}</td>
+            <td>{{e.phone}}</td>
+            <td>
+                <a href="/delete/{{e.id}}/" class="button">Delete</a>
+                <a href="/update/{{e.id}}/" class="button">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
