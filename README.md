@@ -1,2 +1,4 @@
 # employee-management
-An employee management Django project involves creating a web application to efficiently manage various aspects of employee-related tasks within an organization.
+
+A beginner-level project that involves CRUD (Create, Read, Update, Delete) operations and user authentication (login) is a great way to start learning web development with Django. 
+
